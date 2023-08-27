@@ -1,0 +1,5 @@
+package com.pj.nttdata1.repository;
+
+public interface UsuarioRepository {
+
+}

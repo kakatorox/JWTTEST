@@ -1,0 +1,12 @@
+package com.pj.nttdata1.service;
+
+import org.springframework.security.core.userdetails.UserDetails;
+
+public class JwtService {
+
+	public String getToken(UserDetails us) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

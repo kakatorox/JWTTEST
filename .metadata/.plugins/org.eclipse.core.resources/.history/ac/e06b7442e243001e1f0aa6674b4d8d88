@@ -1,0 +1,32 @@
+package com.pj.nttdata.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+
+    
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+            .authorizeHttpRequests()
+                .requestMatchers("/api/registro").permitAll()
+                .requestMatchers("/h2-console/**").permitAll() // Permitir acceso a la consola H2
+                .anyRequest().authenticated()
+                ;
+
+        // Habilitar el marco de seguridad para la consola H2
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+}

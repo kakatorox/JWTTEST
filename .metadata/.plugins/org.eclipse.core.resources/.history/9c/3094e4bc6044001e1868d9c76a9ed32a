@@ -1,0 +1,46 @@
+package com.pj.nttdata1.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.pj.nttdata1.model.Rol;
+import com.pj.nttdata1.model.Telefono;
+import com.pj.nttdata1.model.Usuario;
+import com.pj.nttdata1.repository.UsuarioRepository;
+import com.pj.nttdata1.request.LoginRequest;
+import com.pj.nttdata1.request.RegisterRequest;
+import com.pj.nttdata1.response.AuthResponse;
+
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
+public class AuthService {
+	
+	private final UsuarioRepository usuarioRepository;
+
+	public AuthResponse login(LoginRequest request) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public AuthResponse register(RegisterRequest request) {
+
+		Usuario us = Usuario.builder()
+		.username(request.getUser())
+		.password(request.getPassword())
+		.telefonos(request.getTelefonos())
+		.rol(Rol.USER)
+		.build();
+				
+		usuarioRepository.save(us);
+		
+		return AuthResponse.builder()
+				.token(null)
+				.build();
+	}
+
+
+
+}

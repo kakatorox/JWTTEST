@@ -1,0 +1,42 @@
+package com.pj.nttdata1.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import lombok.RequiredArgsConstructor;
+
+@Configuration
+@RequiredArgsConstructor
+public class ApplicationConfig {
+	
+	@Bean
+	public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
+		
+		return config.getAuthenticationManager();
+	} 
+	
+	@Bean
+	public AuthenticationProvider authenticationProvider() {
+		
+		DaoAuthenticationProvider authention = new DaoAuthenticationProvider();
+		authention.setUserDetailsService(userDetailService());
+		authention.setPasswordEncoder(passwordEncoder());
+		return authenticationProvider();
+	}
+
+	private PasswordEncoder passwordEncoder() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private UserDetailsService userDetailService() {
+		// TODO Auto-generated method stub
+		return null;
+	} 
+}

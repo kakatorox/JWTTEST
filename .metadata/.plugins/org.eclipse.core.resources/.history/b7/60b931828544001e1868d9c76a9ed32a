@@ -1,0 +1,6 @@
+spring.security.user.name=k
+spring.security.user.password=123
+
+spring.datasource.name=dbJhon
+spring.datasource.generate-unique-name=false
+spring.h2.console.enabled=true
