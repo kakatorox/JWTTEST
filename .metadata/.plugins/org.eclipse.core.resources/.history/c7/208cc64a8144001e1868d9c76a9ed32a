@@ -1,0 +1,15 @@
+CREATE TABLE usuario (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255),
+    rol VARCHAR(50)
+);
+
+CREATE TABLE telefono (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    number VARCHAR(255),
+    cityCode VARCHAR(255),
+    countryCode VARCHAR(255),
+    usuario_id INTEGER,
+    FOREIGN KEY (usuario_id) REFERENCES User (id)
+);

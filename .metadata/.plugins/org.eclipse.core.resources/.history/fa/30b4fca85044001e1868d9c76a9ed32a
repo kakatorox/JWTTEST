@@ -1,0 +1,9 @@
+spring.security.user.name=ka
+spring.security.user.password=123
+
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driver-class-name=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=123
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
